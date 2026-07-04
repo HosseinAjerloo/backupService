@@ -8,7 +8,7 @@ Route::get('/', function () {
     $remoteIp = '192.168.171.13';
     $remoteUser = 'dbbbackup';
     $remoteDirectory = '/var/backups/mysql';
-    $localDirectory = '/backup/merikh';
+    $localDirectory = '/var/backups/backup/merikh';
 
     File::ensureDirectoryExists($localDirectory);
 
@@ -18,7 +18,7 @@ Route::get('/', function () {
         "{$remoteUser}@{$remoteIp}",
         "test -d {$remoteDirectory}"
     ]);
-    
+
     $process->run();
 
     if (! $process->isSuccessful()) {
