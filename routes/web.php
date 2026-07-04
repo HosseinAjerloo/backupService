@@ -10,7 +10,8 @@ Route::get('/', function () {
     $remoteDirectory = '/var/backups/mysql';
     $localDirectory = '/var/backups/backup/merikh';
 
-    File::ensureDirectoryExists($localDirectory);
+    
+    File::ensureDirectoryExists($localDirectory,0755,true);
 
 
     $process = new Process([
